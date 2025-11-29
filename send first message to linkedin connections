@@ -1,0 +1,1237 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        48,
+        80
+      ],
+      "id": "66cce529-64cf-439f-b3d5-d6a68477657a",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1632,
+        368
+      ],
+      "id": "57426d71-bcb7-40e5-abd9-9af5e99e6e44",
+      "name": "Wait",
+      "webhookId": "f758a228-1c53-4c6e-929b-f831876e0b23"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g",
+          "mode": "list",
+          "cachedResultName": "Linkedin profile scarper ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1401868176,
+          "mode": "list",
+          "cachedResultName": "first messages",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g/edit#gid=1401868176"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "inviteeProfileUrl": "={{ $('Loop Over Items').item.json.linkedinUrl }}",
+            "Linkedin message sent": "={{ $('sendLinkedinMessage').item.json.object }}"
+          },
+          "matchingColumns": [
+            "inviteeProfileUrl"
+          ],
+          "schema": [
+            {
+              "id": "To",
+              "displayName": "To",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Sent At",
+              "displayName": "Sent At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "inviteeProfileUrl",
+              "displayName": "inviteeProfileUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Linkedin message sent",
+              "displayName": "Linkedin message sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2288,
+        704
+      ],
+      "id": "f4873d14-189c-4de7-8975-dcaa6eaefefd",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gm5Ld0K96vOCJic4",
+          "name": "Google Sheets solenaryy"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 4.3,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2000,
+        368
+      ],
+      "id": "611e2459-ad2f-4b01-8fc6-d71dc3607d49",
+      "name": "Wait1",
+      "webhookId": "91d50559-70f2-4541-b934-94e185dc3ecd"
+    },
+    {
+      "parameters": {
+        "content": "## Retrieve and filter connection profiles to send message to",
+        "height": 280,
+        "width": 700,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1168,
+        208
+      ],
+      "id": "7710855e-2fb3-423d-b442-1e5e3fd83e87",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "Retrieve information from the linkedin profile",
+        "height": 260,
+        "width": 200,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        128,
+        288
+      ],
+      "id": "a701c401-250b-4bb9-be11-615de8fbd314",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "### Filter the response given by AI to make it usable",
+        "height": 260,
+        "width": 180,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        688,
+        288
+      ],
+      "id": "d6e53475-8e20-4142-85bf-1c023fcbabfb",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "### Check if you can send a message to this connection",
+        "height": 260,
+        "width": 180,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        288
+      ],
+      "id": "db592218-4267-459a-8bd9-d8b07e1683c0",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 14,
+              "triggerAtMinute": 37
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1120,
+        304
+      ],
+      "id": "14d87136-29fd-49f8-a6f4-4baba80480c5",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g",
+          "mode": "list",
+          "cachedResultName": "Linkedin profile scarper ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1401868176,
+          "mode": "list",
+          "cachedResultName": "first messages",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g/edit#gid=1401868176"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -944,
+        304
+      ],
+      "id": "c1f13eb5-77d2-461c-b67a-75a84c9fd020",
+      "name": "Google Sheets1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gm5Ld0K96vOCJic4",
+          "name": "Google Sheets solenaryy"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "maxItems": 19
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -608,
+        304
+      ],
+      "id": "ce94d38e-c248-4b30-b317-2ee44a9bf438",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b22c7bed-3c67-4963-8307-cea6933aa800",
+              "leftValue": "={{ $json['Linkedin message sent'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "4dc56be1-fb37-467b-b7d9-c4168735eb3b",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -784,
+        304
+      ],
+      "id": "595e08c2-f71b-4265-8226-057327904827",
+      "name": "Filter1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api16.unipile.com:14995/api/v1/chats",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "X-API-KEY",
+              "value": "your api key"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "account_id",
+              "value": "pn6TkgP7TdyVS8N8ywHqwg"
+            },
+            {
+              "name": "text",
+              "value": "="
+            },
+            {
+              "name": "attendees_ids",
+              "value": "={{ $('getLinkedinUser1').item.json.provider_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1808,
+        368
+      ],
+      "id": "86e0db7b-1f9d-454f-928c-f74c5a9eef3c",
+      "name": "sendLinkedinMessage"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "215340b8-74b0-43b0-8d2d-1138602429a4",
+              "name": "sentAt",
+              "value": "={{ $('Limit').item.json['Sent At'] }}",
+              "type": "string"
+            },
+            {
+              "id": "7b1f0243-b09f-4940-a0e6-75d7b28834ab",
+              "name": "linkedinUrl",
+              "value": "={{ $('Limit').item.json.inviteeProfileUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "4f208c69-6905-4f6d-bbf3-58e3fb017126",
+              "name": "username",
+              "value": "={{ $json.username }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -192,
+        304
+      ],
+      "id": "15a01864-78c5-4b2c-becc-343e77cc440e",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "content": "### Save date and linkedin Url",
+        "height": 280,
+        "width": 180,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        208
+      ],
+      "id": "4dd7d10c-b5b4-4664-904e-2213cedc85b5",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Evaluate a lead based on their occupation and headline, then provide a JSON response with two key pieces of information:\n\nLead Validation:\n- If the lead's occupation or headline includes roles related to marketing, sales, lead generation, founder, energy, renewable energy, solar, wind, clean energy, sustainability, green tech, company ownership, business owners, or decision-making positions (e.g., CEO, Director, Owner, VP, Head of, Project Lead, Business Development), respond \"validLead\": \"YES\".\n- Otherwise, respond \"validLead\": \"NO\".\n\nPersonalized Message Generation:\n- Calculate the number of days since the connection was made.\n- The invitation date is: \"{{ $('Loop Over Items').item.json.sentAt }}\"\n- If this date is missing, empty, or invalid, use a random number of days between 3 and 14 as [X].\n- Today’s date is: {{ $now }}\n- Insert [X] into the message below.\n- Use the first name: \"{{ $json.first_name }}\", but remove any emojis (like 😊, 🙂, 😄) or colons before using it.\n\nMessage Template:\n\"Hi firstname\n\nI’m doing this thing , let’s chat about it .\"\n\nImportant:\n- Return ONLY a valid JSON object.\n- Do NOT include any extra text, explanation, or formatting.\n- [X] must be a whole number (e.g., 5, not 5.2).\n- If first name is missing, use \"there\" as fallback.\n\nInput Data:\n- Occupation: \"{{ $json.occupation }}\"\n- Headline: \"{{ $json.headline }}\"\n- First Name: \"{{ $json.first_name }}\"\n- Invitation Date: \"{{ $('Loop Over Items').item.json.sentAt }}\"\n\nRespond strictly in this JSON format:\n\n{\n  \"validLead\": \"YES\" | \"NO\",\n  \"personalizeMessage\": \"Hey (firstName), I just realized we’ve been connected for [X] days... yes, I did the math haha. But it hit me that we haven’t really talked!\\n\\nCurious—are you currently involved in renewable energy projects (like solar, wind, or clean power) in your role? Would love to hear what you’re working on these days!\"\n}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        384,
+        384
+      ],
+      "id": "4dd531a0-eb6f-4bf6-87b8-b0fc286a86e6",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "KKz3HGkeOAiuX9sv",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "99906053-3efe-4790-bee4-9ad13b5cfa11",
+              "leftValue": "={{ $json.validLead }}",
+              "rightValue": "YES",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "6f71ec32-ae75-4982-a2d5-2610a1db1728",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        928,
+        384
+      ],
+      "id": "ed2057d4-3136-4765-9402-81a058303ff8",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g",
+          "mode": "list",
+          "cachedResultName": "Linkedin profile scarper ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1401868176,
+          "mode": "list",
+          "cachedResultName": "first messages",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g/edit#gid=1401868176"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Linkedin message sent": "Not valid lead",
+            "inviteeProfileUrl": "={{ $('Loop Over Items').item.json.linkedinUrl }}"
+          },
+          "matchingColumns": [
+            "inviteeProfileUrl"
+          ],
+          "schema": [
+            {
+              "id": "To",
+              "displayName": "To",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Sent At",
+              "displayName": "Sent At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "inviteeProfileUrl",
+              "displayName": "inviteeProfileUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Linkedin message sent",
+              "displayName": "Linkedin message sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1200,
+        704
+      ],
+      "id": "e8e6e34f-4130-4d8c-829c-c0f7b5ea54e0",
+      "name": "Google Sheets2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gm5Ld0K96vOCJic4",
+          "name": "Google Sheets solenaryy"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const rawResponse = $input.first().json.message.content;\n\n// Remove the markdown formatting (```json and ```)\nconst cleanedResponse = rawResponse.replace(/```json|```/g, '').trim();\n\n// Parse the cleaned JSON string\nconst parsedJson = JSON.parse(cleanedResponse);\nreturn parsedJson;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        384
+      ],
+      "id": "879ac087-e3a9-4395-8886-e71659220d91",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "content": "### Extract linkedin ID from url",
+        "height": 280,
+        "width": 180,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -448,
+        208
+      ],
+      "id": "b64527c8-8161-4df9-bab0-4dd544f97e42",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extracts the LinkedIn username from a profile URL\nreturn items.map(item => {\n    const url = item.json['inviteeProfileUrl']; // Get the URL from the input data\n    const match = url.match(/\\/in\\/([^/]+)/); // Extract everything after \"/in/\"\n    return {\n        json: {\n            username: match ? match[1] : null // Return the extracted username or null if not found\n        }\n    };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -400,
+        304
+      ],
+      "id": "9ff9dabf-4e31-45fb-9e8f-62bb4c88cf18",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g",
+          "mode": "list",
+          "cachedResultName": "Linkedin profile scarper ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1401868176,
+          "mode": "list",
+          "cachedResultName": "first messages",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g/edit#gid=1401868176"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Lead status": "={{ $('getLinkedinUser1').item.json.network_distance }}",
+            "inviteeProfileUrl": "={{ $('Loop Over Items').item.json.linkedinUrl }}"
+          },
+          "matchingColumns": [
+            "inviteeProfileUrl"
+          ],
+          "schema": [
+            {
+              "id": "inviteeProfileUrl",
+              "displayName": "inviteeProfileUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Linkedin message sent",
+              "displayName": "Linkedin message sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead status",
+              "displayName": "Lead status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1792,
+        704
+      ],
+      "id": "06e95c7c-2ea9-45d2-a701-5c1da142d341",
+      "name": "Google Sheets3",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gm5Ld0K96vOCJic4",
+          "name": "Google Sheets solenaryy"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## For each user",
+        "height": 240,
+        "width": 200,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4141797b-5305-4451-a9db-78c9da4e2377",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "### Create a personalize message based on the linkedin information and verify the lead decision power",
+        "height": 260,
+        "width": 320,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        352,
+        288
+      ],
+      "id": "88d4bc95-6e43-48ba-bd96-f07be25a6b52",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "content": "## Check if lead is valid",
+        "height": 260,
+        "width": 200,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        880,
+        288
+      ],
+      "id": "5e056b27-20bf-467b-84d5-22848a5c8fc7",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9b49ec79-20be-4af5-9b02-9cff255a72fe",
+              "leftValue": "={{ $json.network_distance }}",
+              "rightValue": "FIRST_DEGREE",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1392,
+        448
+      ],
+      "id": "ca9752f2-f515-4e9c-9a13-c60a91b655ca",
+      "name": "If1",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "### Send your personalize linkedin message. Make sure to wait between each request not to get block by linkedin.",
+        "height": 260,
+        "width": 600
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1584,
+        288
+      ],
+      "id": "e06d008b-407a-43e4-99dc-3e68f702475d",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "content": "## Write down progress in sheet",
+        "height": 240,
+        "width": 1340,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        640
+      ],
+      "id": "64557a93-8654-4488-87c6-a942a6ab3e10",
+      "name": "Sticky Note11"
+    },
+    {
+      "parameters": {
+        "url": "=https://api16.unipile.com:14665/api/v1/users/{{ $json.username }}?linkedin_sections=%2A&account_id=pn6TkgP7Tdy",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "X-API-KEY",
+              "value": "your api key"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        192,
+        384
+      ],
+      "id": "e0e1a2c6-6712-44bb-90b6-4ae7b5e23b78",
+      "name": "getLinkedinUser1"
+    },
+    {
+      "parameters": {
+        "url": "=https://api16.unipile.com:14695/api/v1/users/relations?account_id=pn6Tkg",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "X-API-KEY",
+              "value": "api key"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -800,
+        624
+      ],
+      "id": "2f7e923a-ec3f-4a94-8e84-000ff40e98b7",
+      "name": "getLinkedinUser"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract public_profile_url from each item in the items array\nconst items = $input.all();\nconst results = [];\n\n// Loop through all input items\nfor (const item of items) {\n  // Check if items array exists\n  if (item.json.items && Array.isArray(item.json.items)) {\n    // Loop through each item in the items array\n    for (const linkedinItem of item.json.items) {\n      if (linkedinItem.public_profile_url) {\n        results.push({\n          json: {\n            linkedin_url: linkedinItem.public_profile_url\n          }\n        });\n      }\n    }\n  }\n}\n\nreturn results;"
+      },
+      "id": "63537b8e-739b-40b4-aaae-8ef82dd36bfb",
+      "name": "Extract URLs from Items",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -576,
+        624
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g",
+          "mode": "list",
+          "cachedResultName": "Linkedin profile scarper ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1401868176,
+          "mode": "list",
+          "cachedResultName": "first messages",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RN7JW0aGmAoJ3PI9AukbtAMUIV08nyKk93ti0J72s9g/edit#gid=1401868176"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "inviteeProfileUrl": "={{ $json.linkedin_url }}"
+          },
+          "matchingColumns": [
+            "inviteeProfileUrl"
+          ],
+          "schema": [
+            {
+              "id": "inviteeProfileUrl",
+              "displayName": "inviteeProfileUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Linkedin message sent",
+              "displayName": "Linkedin message sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Lead status",
+              "displayName": "Lead status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -352,
+        624
+      ],
+      "id": "95dec7fd-6024-4404-bda7-26bc05c27820",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gm5Ld0K96vOCJic4",
+          "name": "Google Sheets solenaryy"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Update linkedin Connections list\n",
+        "height": 304,
+        "width": 704
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -864,
+        544
+      ],
+      "typeVersion": 1,
+      "id": "b07d4e86-51a3-4e97-9cb6-3f29acd992db",
+      "name": "Sticky Note9"
+    }
+  ],
+  "connections": {
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "getLinkedinUser1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "sendLinkedinMessage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "getLinkedinUser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sendLinkedinMessage": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [],
+        []
+      ]
+    },
+    "getLinkedinUser1": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "getLinkedinUser": {
+      "main": [
+        [
+          {
+            "node": "Extract URLs from Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract URLs from Items": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1cbef7f2783acfad469291bdbc61e01be0e96f22066040a37b8d21a424901315"
+  }
+}
