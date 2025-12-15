@@ -1,0 +1,51 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://kokoro.62.84.188.136.sslip.io/v1/audio/speech",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "kokoro"
+            },
+            {
+              "name": "input",
+              "value": "=hi"
+            },
+            {
+              "name": "voice",
+              "value": "af_heart"
+            },
+            {
+              "name": "response_format",
+              "value": "mp3"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "id": "cf43be87-f2b0-4804-a1f7-aff111674ba9",
+      "name": "Kokoro TTS Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        0,
+        16
+      ]
+    }
+  ],
+  "connections": {},
+  "pinData": {},
+  "meta": {
+    "instanceId": "daa0b7901d4a776472219a94690785ce9aff3147577100d343e77ae9851d1539"
+  }
+}
